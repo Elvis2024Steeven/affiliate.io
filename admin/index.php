@@ -1,4 +1,6 @@
 <?php
+// Include authentication check
+require_once 'auth/check_auth.php';
 require_once 'config/database.php';
 
 $db = new Database();
@@ -89,10 +91,19 @@ if (isset($_GET['edit'])) {
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings text-purple-600 h-8 w-8"><path d="M12.22 2h-.44a2 2 0 0 0-2 2.18l.2 1.83a2 2 0 0 1-.26 1.31l-.24.4a2 2 0 0 1-1.1.81l-1.8.46a2 2 0 0 0-1.48 2.34l.22.88a2 2 0 0 0 2.34 1.48l1.8-.46a2 2 0 0 1 1.31.26l.4.24a2 2 0 0 1 .81 1.1l.46 1.8a2 2 0 0 0 2.34 1.48l.88-.22a2 2 0 0 0 1.48-2.34l-.46-1.8a2 2 0 0 1 .26-1.31l.24-.4a2 2 0 0 1 1.1-.81l1.8-.46a2 2 0 0 0 1.48-2.34l-.22-.88a2 2 0 0 0-2.34-1.48l-1.8.46a2 2 0 0 1-1.31-.26l-.4-.24a2 2 0 0 1-.81-1.1l-.46-1.8A2 2 0 0 0 12.22 2Z"/><circle cx="12" cy="12" r="3"/></svg>
                     <h1 class="text-2xl font-bold text-gray-900">Admin Panel</h1>
                 </div>
-                <a href="../index.html" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-200 flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link w-4 h-4"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                    <span>Voir le site</span>
-                </a>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">
+                        Connecté en tant que: <strong><?php echo htmlspecialchars($_SESSION['admin_username']); ?></strong>
+                    </span>
+                    <a href="../index.html" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-200 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link w-4 h-4"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                        <span>Voir le site</span>
+                    </a>
+                    <a href="auth/logout.php" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-200 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out w-4 h-4"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                        <span>Déconnexion</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
