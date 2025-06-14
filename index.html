@@ -68,53 +68,27 @@
         <h3 class="text-4xl font-bold text-center text-gray-900 mb-12">
             Nos <span class="text-purple-600">Produits Phares</span> du Moment
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Carte Produit 1 -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 flex flex-col justify-between">
-                <div>
-                    <img src="https://m.media-amazon.com/images/I/61Kvp2xNiDL._AC_SY535_.jpg" alt="Casque Audio Sans Fil Haut de Gamme" class="w-full h-55 object-cover rounded-xl mb-4 shadow-md"/>
-                    <h4 class="text-2xl font-bold text-gray-900 mb-2">PERLETTI Men’s Summer House Slippers</h4>
-                    <p class="text-gray-600 mb-4 text-justify">
-                        Ultra‑légères, boucles élégantes, confort toute la journée, semelle antidérapante – parfaites pour maison, plage et piscine, hiver comme été.
-                </div>
-                <a href="https://amzn.to/4e0ZigJ" target="_blank" class="mt-auto bg-purple-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-600 transition duration-300 ease-in-out shadow-md text-center">
-                    Voir sur Amazon
-                    <!-- Lucide icon for shopping cart -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart inline-block ml-2 w-4 h-4"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-                </a>
+        
+        <!-- Loading state -->
+        <div id="products-loading" class="text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+            <p class="mt-4 text-gray-600">Chargement des produits...</p>
+        </div>
+        
+        <!-- Products container -->
+        <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 hidden">
+            <!-- Products will be loaded here dynamically -->
+        </div>
+        
+        <!-- Error state -->
+        <div id="products-error" class="text-center py-12 hidden">
+            <div class="text-red-500 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-circle w-12 h-12 mx-auto"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
             </div>
-
-            <!-- Carte Produit 2 -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 flex flex-col justify-between">
-                <div>
-                    <img src="https://translaser.fr/cdn/shop/files/porte-cles-pour-smartphone-en-canne-de-ble-peix-1.jpg?v=1689237590" alt="Robot Aspirateur Intelligent Connecté" class="w-full h-55 object-cover rounded-xl mb-4 shadow-md"/>
-                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Token for Shopping Cart One Euro 1 Coin Supermarket Shopping Iper</h4>
-                    <p class="text-gray-600 mb-4 text-justify">
-                       Facilitez vos courses avec ce jeton pratique au format pièce de 1 euro, parfait pour libérer les chariots de supermarché.
-                    </p>
-                </div>
-                <a href="https://amzn.to/43ULoYM" target="_blank" class="mt-auto bg-purple-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-600 transition duration-300 ease-in-out shadow-md text-center">
-                    Voir sur Amazon
-                    <!-- Lucide icon for shopping cart -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart inline-block ml-2 w-4 h-4"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-                </a>
-            </div>
-
-            <!-- Carte Produit 3 -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 flex flex-col justify-between">
-                <div>
-                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Produit+3" alt="Montre Connectée Sport et Bien-être" class="w-full h-55 object-cover rounded-xl mb-4 shadow-md"/>
-                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Montre Connectée Sport et Bien-être</h4>
-                    <p class="text-gray-600 mb-4 text-justify">
-                        Suivez votre activité physique, votre sommeil et recevez vos notifications avec cette montre élégante et performante, votre coach personnel au poignet.
-                    </p>
-                </div>
-                <a href="#" target="_blank" class="mt-auto bg-purple-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-600 transition duration-300 ease-in-out shadow-md text-center">
-                    Voir sur Amazon
-                    <!-- Lucide icon for shopping cart -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart inline-block ml-2 w-4 h-4"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-                </a>
-            </div>
+            <p class="text-gray-600">Erreur lors du chargement des produits.</p>
+            <button onclick="loadProducts()" class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-200">
+                Réessayer
+            </button>
         </div>
     </section>
 
@@ -208,6 +182,91 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+
+        // Load products dynamically
+        async function loadProducts() {
+            const loadingEl = document.getElementById('products-loading');
+            const containerEl = document.getElementById('products-container');
+            const errorEl = document.getElementById('products-error');
+
+            // Show loading state
+            loadingEl.classList.remove('hidden');
+            containerEl.classList.add('hidden');
+            errorEl.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/products.php');
+                const data = await response.json();
+
+                if (data.success && data.products) {
+                    renderProducts(data.products);
+                    loadingEl.classList.add('hidden');
+                    containerEl.classList.remove('hidden');
+                } else {
+                    throw new Error(data.error || 'Failed to load products');
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+            }
+        }
+
+        function renderProducts(products) {
+            const container = document.getElementById('products-container');
+            
+            if (products.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="text-gray-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-16 h-16 mx-auto"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29,7 12,12 20.71,7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
+                        </div>
+                        <p class="text-gray-600 text-lg">Aucun produit disponible pour le moment</p>
+                        <p class="text-gray-500">Revenez bientôt pour découvrir nos dernières sélections !</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = products.map(product => `
+                <div class="bg-white rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 flex flex-col justify-between">
+                    <div>
+                        <img src="${escapeHtml(product.image_url)}" 
+                             alt="${escapeHtml(product.title)}" 
+                             class="w-full h-55 object-cover rounded-xl mb-4 shadow-md"
+                             onerror="this.src='https://placehold.co/400x300/a78bfa/ffffff?text=Image+Non+Disponible'"/>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-2">${escapeHtml(product.title)}</h4>
+                        <p class="text-gray-600 mb-4 text-justify">
+                            ${escapeHtml(product.description)}
+                        </p>
+                        ${product.price ? `<p class="text-lg font-semibold text-purple-600 mb-4">${escapeHtml(product.price)}</p>` : ''}
+                    </div>
+                    <a href="${escapeHtml(product.amazon_link)}" 
+                       target="_blank" 
+                       class="mt-auto bg-purple-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-600 transition duration-300 ease-in-out shadow-md text-center">
+                        Voir sur Amazon
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart inline-block ml-2 w-4 h-4"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    </a>
+                </div>
+            `).join('');
+
+            // Reinitialize Lucide icons for new content
+            lucide.createIcons();
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        // Load products when page loads
+        document.addEventListener('DOMContentLoaded', loadProducts);
     </script>
 </body>
 </html>
